@@ -521,7 +521,7 @@ namespace sl {
 
             if (!isConnected()) return SL_RESULT_OPERATION_NOT_SUPPORT;
 
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
             bool confProtocolSupported = false;
             ans = checkSupportConfigCommands(confProtocolSupported, timeoutInMs);
             if (!ans) return SL_RESULT_INVALID_DATA;
@@ -558,7 +558,7 @@ namespace sl {
             rp::hal::AutoLocker l(_op_locker);
             if (!isConnected()) return SL_RESULT_OPERATION_NOT_SUPPORT;
 
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
             std::vector<sl_u8> answer;
             bool lidarSupportConfigCmds = false;
             ans = checkSupportConfigCommands(lidarSupportConfigCmds);
@@ -588,7 +588,7 @@ namespace sl {
             rp::hal::AutoLocker l(_op_locker);
             if (!isConnected()) return SL_RESULT_OPERATION_NOT_SUPPORT;
 
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
             bool ifSupportLidarConf = false;
             LidarScanMode localMode;
 
@@ -620,7 +620,7 @@ namespace sl {
         sl_result startScanNormal_commonpath(bool force, bool ifSupportLidarConf, LidarScanMode& outUsedScanMode, sl_u32 timeout)
         {
 
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
 
             if (ifSupportLidarConf) {
 
@@ -673,7 +673,7 @@ namespace sl {
             if (!isConnected()) return SL_RESULT_OPERATION_FAIL;
             stop();
 
-            Result<nullptr_t> ans = checkSupportConfigCommands(ifSupportLidarConf);
+            Result<std::nullptr_t> ans = checkSupportConfigCommands(ifSupportLidarConf);
             if (!ans) return ans;
 
             return startScanNormal_commonpath(force, ifSupportLidarConf, localMode, timeout);
@@ -685,7 +685,7 @@ namespace sl {
             if (!isConnected()) return SL_RESULT_OPERATION_NOT_SUPPORT;
 
 
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
             if (!isConnected()) return SL_RESULT_OPERATION_FAIL;
             stop(); //force the previous operation to stop
 
@@ -835,7 +835,7 @@ namespace sl {
             rp::hal::AutoLocker l(_op_locker);
             if (!isConnected()) return SL_RESULT_OPERATION_NOT_SUPPORT;
 
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
             support = MotorCtrlSupportNone;
             _disableDataGrabbing();
 
@@ -899,7 +899,7 @@ namespace sl {
             if (!isConnected()) return SL_RESULT_OPERATION_NOT_SUPPORT;
 
 
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
             std::vector<sl_u8> reserve(2); //keep backward compatibility
 
             std::vector<sl_u8> answer;
@@ -971,7 +971,7 @@ namespace sl {
             if (!isConnected()) return SL_RESULT_OPERATION_NOT_SUPPORT;
 
 
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
             
             if(speed == DEFAULT_MOTOR_SPEED){
                 sl_lidar_response_desired_rot_speed_t desired_speed;
@@ -1022,7 +1022,7 @@ namespace sl {
 
         sl_result getMotorInfo(LidarMotorInfo &motorInfo, sl_u32 timeoutInMs)
         {
-            Result<nullptr_t> ans = SL_RESULT_OK;
+            Result<std::nullptr_t> ans = SL_RESULT_OK;
             rp::hal::AutoLocker l(_op_locker);
             if (!isConnected()) return SL_RESULT_OPERATION_NOT_SUPPORT;
 
